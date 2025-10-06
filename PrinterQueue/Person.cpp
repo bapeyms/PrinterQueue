@@ -1,6 +1,6 @@
-#include "Queue.h"
 #include "Person.h"
 #include <iostream>
+#include <string>
 using namespace std;
 
 void Person::EnterValues()
@@ -14,4 +14,14 @@ void Person::EnterValues()
 	cout << "Enter a text to print: ";
 	cin.getline(buffer, N);
 	textToPrint = buffer;
+}
+
+string Person::GetName()
+{
+	return name;
+}
+
+string Person::GetTextToPrint()
+{
+	return textToPrint;
 }

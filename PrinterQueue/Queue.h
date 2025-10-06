@@ -1,4 +1,8 @@
 #pragma once
+#include "Person.h"
+#include <string>
+using namespace std;
+
 class Queue
 {
 	Person* arr;
@@ -10,13 +14,13 @@ public:
 	Queue& operator=(const Queue& obj);
 	~Queue();
 
-	//Person Extract();
 	void Clear();
 	bool IsEmpty();
 	bool IsFull();
 	int GetCount();
-	//void Add(string person);
+	void Add(Person obj);
+	Person Extract();
 
-	void EnterQueue();
+	void ShowQueue();
 };
 

@@ -1,6 +1,6 @@
 #include "Queue.h"
-#include "Person.h"
 #include <iostream>
+#include <string>
 using namespace std;
 
 Queue::Queue(int max)
@@ -29,35 +29,19 @@ Queue& Queue::operator=(const Queue& obj)
 	{
 		delete[] arr;
 	}
+	maxCount = obj.maxCount;
+	count = obj.count;
 	arr = new Person[obj.maxCount];
 	for (int i = 0; i < maxCount; i++)
 	{
 		arr[i] = obj.arr[i];
 	}
-	maxCount = obj.maxCount;
-	count = obj.count;
-
 	return *this;
 }
 Queue::~Queue()
 {
 	delete[] arr;
 }
-
-
-/*Person Queue::Extract()
-{
-	if (!IsFull())
-	{
-		Person temp = arr[0];
-		for (int i = 1; i < count; i++)
-		{
-			arr[i - 1] = arr[i];
-		}
-		count--;
-		return temp;
-	}
-}*/
 
 void Queue::Clear()
 {
@@ -79,16 +63,48 @@ int Queue::GetCount()
 	return count;
 }
 
-/*void Queue::Add(string person)
+void Queue::Add(Person obj)
 {
 	if (!IsFull())
 	{
-		arr[count++] = person;
+		arr[count++] = obj;
 	}
-}*/
-
-
-void Queue::EnterQueue()
-{
-	
 }
+
+Person Queue::Extract()
+{
+	if (!IsEmpty())
+	{
+		Person temp = arr[0];
+		for (int i = 1; i < count; i++)
+		{
+			arr[i - 1] = arr[i];
+		}
+		count--;
+		return temp;
+	}
+	else
+	{
+		cout << "Method cannot be used! Queue is empty!" << endl;
+		return Person();
+	}
+}
+
+void Queue::ShowQueue()
+{
+	if (IsEmpty())
+	{
+		cout << "Method cannot be used! Queue is empty!" << endl << endl;
+		return;
+	}
+	else
+	{
+		for (int i = 0; i < count; i++)
+		{
+			cout << "Person #" << i + 1 << endl;
+			cout << "Name: " << arr[i].GetName() << endl;
+			cout << "Text to print: " << arr[i].GetTextToPrint() << endl << endl;
+		}
+	}
+}
+
