@@ -9,7 +9,6 @@ Queue::Queue(int max)
 	arr = new Person[maxCount];
 	count = 0;
 }
-
 Queue::Queue(const Queue& obj)
 {
 	maxCount = obj.maxCount;
@@ -20,7 +19,6 @@ Queue::Queue(const Queue& obj)
 		arr[i] = obj.arr[i];
 	}
 }
-
 Queue& Queue::operator=(const Queue& obj)
 {
 	if (this == &obj)
@@ -41,13 +39,56 @@ Queue& Queue::operator=(const Queue& obj)
 
 	return *this;
 }
-
 Queue::~Queue()
 {
 	delete[] arr;
 }
 
+
+/*Person Queue::Extract()
+{
+	if (!IsFull())
+	{
+		Person temp = arr[0];
+		for (int i = 1; i < count; i++)
+		{
+			arr[i - 1] = arr[i];
+		}
+		count--;
+		return temp;
+	}
+}*/
+
+void Queue::Clear()
+{
+	count = 0;
+}
+
+bool Queue::IsEmpty()
+{
+	return count == 0;
+}
+
+bool Queue::IsFull()
+{
+	return count == maxCount;
+}
+
+int Queue::GetCount()
+{
+	return count;
+}
+
+/*void Queue::Add(string person)
+{
+	if (!IsFull())
+	{
+		arr[count++] = person;
+	}
+}*/
+
+
 void Queue::EnterQueue()
 {
-
+	
 }

@@ -2,7 +2,8 @@
 class Person
 {
 	string name;
+	string textToPrint;
 public:
-	void EnterName();
+	void EnterValues();
 };
 

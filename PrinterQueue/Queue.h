@@ -10,6 +10,13 @@ public:
 	Queue& operator=(const Queue& obj);
 	~Queue();
 
+	//Person Extract();
+	void Clear();
+	bool IsEmpty();
+	bool IsFull();
+	int GetCount();
+	//void Add(string person);
+
 	void EnterQueue();
 };
 
